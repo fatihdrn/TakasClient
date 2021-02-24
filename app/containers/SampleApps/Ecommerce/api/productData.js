@@ -3,7 +3,7 @@ const productData = [
   {
     id: '1',
     name: 'Rocs Kids Meyve Külahı 3-7 Yaş Diş Macunu 45 gr',
-    thumbnail: imgApi[21],
+    thumbnail: '',
     desc: 'FATİH DURAN',
     barkod:'546yghj',     
     psf:'45ytyh',

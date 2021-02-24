@@ -28,6 +28,8 @@ export default function reducer(state = initialImmutableState, action = {}) {
     case FETCH_PRODUCT_DATA:
       return state.withMutations((mutableState) => {
         const items = fromJS(action.items);
+        console.log("dsas");
+        console.log(items);
         mutableState.set('productList', items);
       });
     case SEARCH_PRODUCT:

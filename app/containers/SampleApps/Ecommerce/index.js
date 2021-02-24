@@ -49,8 +49,9 @@ function Ecommerce() {
   
       }];
       
-      setDataIlan(authState);
       
+      fetchData(fetchAction(authState));
+    
       
       } catch (e) {
        
@@ -58,21 +59,35 @@ function Ecommerce() {
   }
   useEffect(() => {
     dataUrun();
-    fetchData(fetchAction(data));
+
+    //fetchData(fetchAction(dataIlan));
     
   }, []);
 
   const handleSwitchView = (event, value) => {
     setListView(value);
   };
- console.log(dataIlan)
+
   const title = brand.name + ' - Ecommerce';
+
   const description = brand.desc;
 
   return (
     <div>
-     
-      <Notification close={() => closeNotif(closeNotifAction)} message={messageNotif} />
+     <ProductGallery
+        listView={listView}
+        dataProduct={dataProduct}
+        showDetail={(payload) => showDetail(detailAction(payload))}
+        handleAddToCart={(payload) => handleAddToCart(addAction(payload))}
+        productIndex={productIndex}
+        keyword={keyword}
+      />
+    </div>
+  );
+}
+
+export default Ecommerce;
+/*<Notification close={() => closeNotif(closeNotifAction)} message={messageNotif} />
       <SearchProduct
         dataCart={dataCart}
         dataProduct={dataProduct}
@@ -92,9 +107,4 @@ function Ecommerce() {
         handleAddToCart={(payload) => handleAddToCart(addAction(payload))}
         productIndex={productIndex}
         keyword={keyword}
-      />
-    </div>
-  );
-}
-
-export default Ecommerce;
+      />*/

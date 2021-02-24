@@ -42,12 +42,14 @@ function ProductGallery(props) {
       >
         {
           dataProduct.map((product, index) => {
-            if (product.get('name').toLowerCase().indexOf(keyword) === -1) {
+            if (product.get("0").get('urun').get("adi").toLowerCase().indexOf(keyword) === -1) {
               return false;
             }
+            console.log("products")
+            console.log(product.get("0"));
             const itemAttr = {
-              id: product.get('id'),
-              name: product.get('name'),
+              id: product.get("0").get('id'),
+              name: product.get("0").get('kullanici').get("ad"),
               thumbnail: product.get('thumbnail'),
               price: product.get('price'),
               quantity: 1
@@ -56,7 +58,7 @@ function ProductGallery(props) {
               <Grid item md={listView === 'list' ? 12 : 4} sm={listView === 'list' ? 15 : 6} xs={12} key={index.toString()}>
                 <ProductCard
                   list={listView === 'list'}
-                  name={product.get('name')}
+                  name={product.get("0").get('urun').get("adi")}
                   thumbnail={product.get('thumbnail')}
                   desc={product.get('desc')}
                   ratting={product.get('ratting')}
